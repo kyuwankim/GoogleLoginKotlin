@@ -1,0 +1,95 @@
+{
+  "project_info": {
+    "project_number": "1035037231277",
+    "project_id": "dark-axe-187705"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1035037231277:android:835b1a7ae9fde363",
+        "android_client_info": {
+          "package_name": "com.kyuwankim.googlelogin_kt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1035037231277-2ufd2ekohtmaold9fu0aj849mus4ckhn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kyuwankim.googlelogin_kt",
+            "certificate_hash": "0ff77c7ce32414ba495e200335a962b7dc3eefef"
+          }
+        },
+        {
+          "client_id": "1035037231277-gbqc50a8ij5c2ma19n017fbadpot1er1.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "1035037231277-p1omf1ia2crmsp8u4k6l4848bk69lp8l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kyuwankim.googlelogin_kt",
+            "certificate_hash": "408c43ca041d9f45bbad15bab0d5f2c66509537c"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJliGWpbDpU-_SINcRuprOXL9KJEh5lD0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1035037231277:android:f3fb0faa8693083b",
+        "android_client_info": {
+          "package_name": "com.example.dataking.googleloginkotlin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1035037231277-h3ra1p3noul7qa1ff3loal3tpumdu95l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.dataking.googleloginkotlin",
+            "certificate_hash": "408c43ca041d9f45bbad15bab0d5f2c66509537c"
+          }
+        },
+        {
+          "client_id": "1035037231277-gbqc50a8ij5c2ma19n017fbadpot1er1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJliGWpbDpU-_SINcRuprOXL9KJEh5lD0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
