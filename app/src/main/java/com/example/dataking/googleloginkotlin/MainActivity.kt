@@ -1,9 +1,8 @@
 package com.example.dataking.googleloginkotlin
 
 import android.content.Intent
-import android.media.MediaPlayer
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
 import com.google.android.gms.auth.api.Auth
@@ -37,15 +36,20 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedList
             startActivityForResult(signInIntent, RC_SIGN_IN)
         })
         btn_logout.setOnClickListener(View.OnClickListener {
-            Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback {
 
-                object : ResultCallback<Status> {
-                    override fun onResult(status: Status) {
-                        updateUI(status.isSuccess)
-                    }
-                }
-            }
+            signOut()
+
         })
+    }
+
+    fun signOut() {
+
+        Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback {
+            // [START_EXCLUDE]
+            updateUI(false)
+            // [END_EXCLUDE]
+        }
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
