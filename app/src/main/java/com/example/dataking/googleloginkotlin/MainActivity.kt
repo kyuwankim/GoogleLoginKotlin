@@ -6,11 +6,11 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
 import com.google.android.gms.auth.api.Auth
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.auth.api.signin.GoogleSignInResult
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.api.GoogleApiClient
-import com.google.android.gms.common.api.ResultCallback
-import com.google.android.gms.common.api.Status
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedListener {
@@ -34,6 +34,8 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedList
         sign_in_button.setOnClickListener(View.OnClickListener {
             var signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient)
             startActivityForResult(signInIntent, RC_SIGN_IN)
+
+
         })
         btn_logout.setOnClickListener(View.OnClickListener {
 
@@ -46,9 +48,17 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedList
     private fun revokeAccess() {
         Auth.GoogleSignInApi.revokeAccess(mGoogleApiClient).setResultCallback {
             // [START_EXCLUDE]
-            Log.d("Signin","revokeAccess====================================================")
+            Log.d("Signin", "revokeAccess====================================================")
             updateUI(false)
             // [END_EXCLUDE]
+
+            getDisplayName.setText("")
+            getEmail.setText("" )
+            getFamilyName.setText("")
+            getGivenName.setText("")
+            getId.setText("")
+            getIdToken.setText("")
+            getPhotoUrl.setText("")
         }
     }
 
@@ -56,7 +66,7 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedList
 
         Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback {
             // [START_EXCLUDE]
-            Log.d("Signin","signOut====================================================")
+            Log.d("Signin", "signOut====================================================")
             updateUI(false)
             // [END_EXCLUDE]
         }
@@ -67,9 +77,24 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedList
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == RC_SIGN_IN) {
-            var result = Auth.GoogleSignInApi.getSignInResultFromIntent(data)
+            var result : GoogleSignInResult = Auth.GoogleSignInApi.getSignInResultFromIntent(data)
             updateUI(result.isSuccess)
+            getAccountInfo(result);
         }
+    }
+
+    private fun getAccountInfo(result: GoogleSignInResult) {
+
+        var account: GoogleSignInAccount? = result.getSignInAccount()
+
+        getDisplayName.setText("" + account!!.displayName)
+        getEmail.setText("" + account!!.email)
+        getFamilyName.setText("" + account!!.familyName)
+        getGivenName.setText("" + account!!.givenName)
+        getId.setText("" + account!!.id)
+        getIdToken.setText("" + account!!.idToken)
+        getPhotoUrl.setText("" + account!!.photoUrl)
+
     }
 
     private fun updateUI(isLogin: Boolean) {
