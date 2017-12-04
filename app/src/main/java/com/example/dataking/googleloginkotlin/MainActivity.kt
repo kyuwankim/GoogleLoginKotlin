@@ -1,10 +1,14 @@
 package com.example.dataking.googleloginkotlin
 
 import android.content.Intent
+import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
+import com.bumptech.glide.Glide
 import com.google.android.gms.auth.api.Auth
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -53,12 +57,13 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedList
             // [END_EXCLUDE]
 
             getDisplayName.setText("")
-            getEmail.setText("" )
+            getEmail.setText("")
             getFamilyName.setText("")
             getGivenName.setText("")
             getId.setText("")
             getIdToken.setText("")
             getPhotoUrl.setText("")
+            account_photo_image.setImageBitmap(null)
         }
     }
 
@@ -77,7 +82,7 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedList
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == RC_SIGN_IN) {
-            var result : GoogleSignInResult = Auth.GoogleSignInApi.getSignInResultFromIntent(data)
+            var result: GoogleSignInResult = Auth.GoogleSignInApi.getSignInResultFromIntent(data)
             updateUI(result.isSuccess)
             getAccountInfo(result);
         }
@@ -95,7 +100,12 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedList
         getIdToken.setText("" + account!!.idToken)
         getPhotoUrl.setText("" + account!!.photoUrl)
 
+        Glide.with(applicationContext).load(account.photoUrl).into(account_photo_image)
+
+
     }
+
+
 
     private fun updateUI(isLogin: Boolean) {
         if (isLogin) {
