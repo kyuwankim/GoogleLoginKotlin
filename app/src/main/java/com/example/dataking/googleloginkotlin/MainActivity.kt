@@ -38,14 +38,25 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedList
         btn_logout.setOnClickListener(View.OnClickListener {
 
             signOut()
+            revokeAccess()
 
         })
     }
 
-    fun signOut() {
+    private fun revokeAccess() {
+        Auth.GoogleSignInApi.revokeAccess(mGoogleApiClient).setResultCallback {
+            // [START_EXCLUDE]
+            Log.d("Signin","revokeAccess====================================================")
+            updateUI(false)
+            // [END_EXCLUDE]
+        }
+    }
+
+    private fun signOut() {
 
         Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback {
             // [START_EXCLUDE]
+            Log.d("Signin","signOut====================================================")
             updateUI(false)
             // [END_EXCLUDE]
         }
