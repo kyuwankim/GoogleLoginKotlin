@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Button
 import com.google.android.gms.auth.api.Auth
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.ConnectionResult
@@ -28,16 +27,14 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedList
 
         updateUI(false)
 
-        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_GAMES_SIGN_IN).requestEmail().build()
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build()
 
         mGoogleApiClient = GoogleApiClient.Builder(this).enableAutoManage(this, this).addApi(Auth.GOOGLE_SIGN_IN_API, gso).build()
 
         sign_in_button.setOnClickListener(View.OnClickListener {
-
             var signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient)
             startActivityForResult(signInIntent, RC_SIGN_IN)
         })
-
         btn_logout.setOnClickListener(View.OnClickListener {
             Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback {
                 object : ResultCallback<Status> {
@@ -65,6 +62,7 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedList
         } else {
             sign_in_button?.visibility = View.VISIBLE
             btn_logout?.visibility = View.GONE
+
         }
     }
 

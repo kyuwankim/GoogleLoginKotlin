@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">GoogleLoginKotlin</string>
+    <string name="server_client_id">1035037231277-h3ra1p3noul7qa1ff3loal3tpumdu95l.apps.googleusercontent.com</string>
+
 </resources>

@@ -13,7 +13,7 @@
       },
       "oauth_client": [
         {
-          "client_id": "1035037231277-2ufd2ekohtmaold9fu0aj849mus4ckhn.apps.googleusercontent.com",
+          "client_id": "1035037231277-d884s2bi5lg2nnia82idlnk1079rfed0.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.kyuwankim.googlelogin_kt",
@@ -21,16 +21,16 @@
           }
         },
         {
-          "client_id": "1035037231277-gbqc50a8ij5c2ma19n017fbadpot1er1.apps.googleusercontent.com",
-          "client_type": 3
-        },
-        {
-          "client_id": "1035037231277-p1omf1ia2crmsp8u4k6l4848bk69lp8l.apps.googleusercontent.com",
+          "client_id": "1035037231277-k5170iijg1e3f4ti7auohjqb4c86pid5.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.kyuwankim.googlelogin_kt",
             "certificate_hash": "408c43ca041d9f45bbad15bab0d5f2c66509537c"
           }
+        },
+        {
+          "client_id": "1035037231277-gbqc50a8ij5c2ma19n017fbadpot1er1.apps.googleusercontent.com",
+          "client_type": 3
         }
       ],
       "api_key": [
