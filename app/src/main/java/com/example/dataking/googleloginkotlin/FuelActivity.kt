@@ -7,6 +7,7 @@ import com.github.kittinunf.fuel.core.FuelManager
 import com.github.kittinunf.fuel.httpGet
 import com.github.kittinunf.result.Result
 import com.github.kittinunf.result.getAs
+import kotlinx.android.synthetic.main.activity_fuel.*
 
 class FuelActivity : AppCompatActivity() {
 
@@ -22,6 +23,7 @@ class FuelActivity : AppCompatActivity() {
             if (error == null) {
                 //do something when success
                 Log.d("success",""+data)
+                tv_fuel.setText(""+data)
             } else {
                 //error handling
                 Log.d("fail",""+error)
