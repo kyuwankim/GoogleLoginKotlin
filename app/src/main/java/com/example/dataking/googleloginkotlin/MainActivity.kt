@@ -47,6 +47,13 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedList
             revokeAccess()
 
         })
+
+        btn_fuel.setOnClickListener(View.OnClickListener {
+
+            var intent : Intent = Intent(this, FuelActivity::class.java)
+            startActivity(intent)
+
+        })
     }
 
     private fun revokeAccess() {
