@@ -35,6 +35,14 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedList
 
         mGoogleApiClient = GoogleApiClient.Builder(this).enableAutoManage(this, this).addApi(Auth.GOOGLE_SIGN_IN_API, gso).build()
 
+
+        btn_googlemap.setOnClickListener(View.OnClickListener {
+
+            var intent : Intent = Intent(this, GooglemapActivity::class.java)
+            startActivity(intent)
+
+        })
+
         sign_in_button.setOnClickListener(View.OnClickListener {
             var signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient)
             startActivityForResult(signInIntent, RC_SIGN_IN)
