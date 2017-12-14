@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         txt_signupnow.setOnClickListener(View.OnClickListener {
-            var intent : Intent = Intent(this, SignupActivity::class.java)
+            var intent : Intent = Intent(this, ListActivity::class.java)
             startActivity(intent)
         })
 
