@@ -2,26 +2,21 @@ package com.example.dataking.googleloginkotlin.Adapter
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
-import android.text.Layout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.dataking.googleloginkotlin.Model.Video
-import java.security.AccessController.getContext
-import com.example.dataking.googleloginkotlin.R.id.cardview
-import android.support.v7.widget.CardView
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
+import com.example.dataking.googleloginkotlin.ListActivity
 import com.example.dataking.googleloginkotlin.R
-import com.example.dataking.googleloginkotlin.R.id.image
-import kotlinx.android.synthetic.main.list_item.view.*
 
 
 /**
  * Created by dataking on 2017-12-14.
  */
-class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.RecyclerViewHolder>() {
+class RecyclerAdapter(video: List<Video>, list_item: Int, listActivity: ListActivity) : RecyclerView.Adapter<RecyclerAdapter.RecyclerViewHolder>() {
 
     var itemLayout: Int = 0
     var datas: List<Video>? = null
