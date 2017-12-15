@@ -20,20 +20,27 @@ class ListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list)
 
-        var video: List<Video>
+        val rv = findViewById<View>(R.id.recyclerview) as RecyclerView
+        var video = listOf<Video>()
+
+        val ra = RecyclerAdapter(
+                video,
+                R.layout.list_item,
+                this
+        )
+
+        rv.adapter = ra
+        rv.layoutManager = LinearLayoutManager(this)
 
         FuelManager.instance.basePath = getString(R.string.server_url)
         Fuel.get("/videos/all").responseObject(Video.ListDeserializer()) { _, _, result ->
             when (result) {
                 is Result.Success -> {
                     video = result.get()
+                    ra.data = video
+                    ra.notifyDataSetChanged()
 
-                    var rv = findViewById<View>(R.id.recyclerview) as RecyclerView
-                    val ra = RecyclerAdapter(video, R.layout.list_item, this)
-                    rv.setAdapter(ra)
-
-                    rv.setLayoutManager(LinearLayoutManager(this))
-                }
+                 }
                 is Result.Failure -> {
                     Log.e("Video", "fail...")
                 }

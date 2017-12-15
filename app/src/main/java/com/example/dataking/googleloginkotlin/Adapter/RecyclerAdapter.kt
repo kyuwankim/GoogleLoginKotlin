@@ -9,48 +9,33 @@ import com.example.dataking.googleloginkotlin.Model.Video
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
-import com.example.dataking.googleloginkotlin.ListActivity
 import com.example.dataking.googleloginkotlin.R
-
 
 /**
  * Created by dataking on 2017-12-14.
  */
-class RecyclerAdapter(video: List<Video>, list_item: Int, listActivity: ListActivity) : RecyclerView.Adapter<RecyclerAdapter.RecyclerViewHolder>() {
-
-    var itemLayout: Int = 0
-    var datas: List<Video>? = null
-    var context: Context? = null
-
-    fun RecyclerAdapter(datas: List<Video>, itemLayout: Int, context: Context) {
-        this.itemLayout = itemLayout
-        this.datas = datas
-        this.context = context
-    }
-
+class RecyclerAdapter(var data: List<Video>?, private val itemLayout: Int, private val context: Context) : RecyclerView.Adapter<RecyclerAdapter.RecyclerViewHolder>() {
 
     override fun onBindViewHolder(holder: RecyclerViewHolder?, position: Int) {
 
-        var data: Video = datas!!.get(position)
+        var data: Video = data!![position]
 
-        holder!!.tvtitle.setText(data.title)
-        holder!!.tvlocation.setText(data.address)
-        Glide.with(context).load("https://img.youtube.com/vi/${data.youtubeId}/mqdefault.jpg").into(holder!!.imageview)
+        holder!!.tvtitle.text = data.title
+        holder.tvlocation.text = data.address
+        Glide.with(context).load("https://img.youtube.com/vi/${data.youtubeId}/mqdefault.jpg").into(holder.imageview)
 
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecyclerViewHolder {
 
-        var view: View = LayoutInflater.from(parent!!.context).inflate(itemLayout, parent, false)
-        var rv: RecyclerViewHolder = RecyclerViewHolder(view)
-
-        return rv
+        val view: View = LayoutInflater.from(parent!!.context).inflate(itemLayout, parent, false)
+        return RecyclerViewHolder(view)
 
     }
 
     override fun getItemCount(): Int {
-        return datas!!.size
+        return data!!.size
     }
 
     inner class RecyclerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
