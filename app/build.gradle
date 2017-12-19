@@ -35,6 +35,9 @@ dependencies {
 
     // GoogleMap
     compile 'com.google.android.gms:play-services-maps:11.6.0'
+    // GoogleLogin
+    compile 'com.google.android.gms:play-services-auth:11.6.0'
+
 
     //Glide
     compile 'com.github.bumptech.glide:glide:3.7.0'
@@ -45,6 +48,8 @@ dependencies {
     //Fuel Gradle
     compile 'com.github.kittinunf.fuel:fuel-android:1.9.0' //for Android
     compile 'com.github.kittinunf.fuel:fuel-gson:1.9.0' //for Gson support
+
+
 
 
     implementation 'com.android.support:recyclerview-v7:26.1.0'

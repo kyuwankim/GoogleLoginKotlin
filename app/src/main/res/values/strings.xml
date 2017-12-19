@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">GoogleLoginKotlin</string>
     <string name="server_url">https://www.bideomap.com</string>
-
+    <string name="server_client_id">144348378409-t5v9p2epml4b69h99fbc1b9ibic64hq2.apps.googleusercontent.com</string>
 </resources>
